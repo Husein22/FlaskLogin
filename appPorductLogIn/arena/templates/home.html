@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+ 
+</head>
+  <body>
+  
+   
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <h4> <span class="nowrap" style="font-weight:bold;color:black;">Product</span>
+         <span class="nowrap" style="color:black;">Arena</span></h4>
+        <button class="btn btn-outline-success" type="submit" data-toggle="modal"
+            data-target-"#Modal-MoreInfo"
+            >
+          <form class="d-flex">
+            <a  class="btn btn-danger btn-xs"  href="{{url_for('logout_page')}}" onclick="return confirm('Are you sure you want to log out form the console?')">LogOut</a>
+          </form>
+       
+      </div>
+    </nav>
+
+ 
+    <div style="margin-top:50px;padding-left:250px"><h5> My profile</h5></div>
+      <div style="padding-left:250px"><h5>Dr. Jon Doe</h5></div>
+
+      <div class="klasa" style="margin-top:10%;margin-left:10%;">
+
+         <h4>Patient list for today</h4><hr style="width:230px;">
+         <br>
+         {%for pacijent in pacijent%}
+         {% if pacijent.datum.__eq__(4) %}
+         <div><h5> {{pacijent.name}}</h5>
+            <div><h5>{{pacijent.vrijemePocetkaPregleda}} · {{pacijent.description}}</h5></div>
+            
+               <br>
+      {% endif %}
+      {%endfor%}
+      </div>
+
+      <div class="klasa" style="margin-top:4%;">
+
+         <h4>Tomorrow</h4><hr style="width:120px;">
+         <br>
+         {%for pacijent in pacijent%}
+         {% if pacijent.datum.__eq__(5) %}
+            <div><h5>{{pacijent.vrijemePocetkaPregleda}} · {{pacijent.description}}</h5></div>
+            <div><h5> {{pacijent.name}}</h5>
+               <br>
+      {% endif %}
+      {%endfor%}
+      </div>
+
+      <div class="modal" id="modalKon" tabindex="-1" role="dialog">
+         <div class="modal-dialog" id="Modal-MoreInfo" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title">Log out</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+             </div>
+             <div class="modal-body">
+               <p>Are you sure you want to log out form the console?</p>
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-primary">Save changes</button>
+               <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div>
+           </div>
+         </div>
+       </div>
+
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	<script src="index.js"></script>
+  </body>
+</html>
+
+
+
+
